@@ -1,0 +1,29 @@
+.heading
+{
+    text-align: center;
+    font-family: "Playwrite ES Deco", cursive;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+    font-size: 30px;
+  
+}
+.todo-container
+{
+   
+    height: 450px;
+    width: 500px;
+    margin: 10px auto;
+    background-image: linear-gradient( 174.2deg,  rgba(255,244,228,1) 7.1%, rgba(240,246,238,1) 67.4% );
+    border: 5px double gray;
+    display: flex;
+    position: relative;
+}
+.check-icon
+{
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    height: 120px;
+
+}
