@@ -23,6 +23,7 @@ function Home()
     // ]
 
     const [todoList,setTodoList] =useState([])
+    const [newTask,setNewTask] = useState([])
     return(
         
         <div>
@@ -52,9 +53,20 @@ function Home()
         <div className="add-task-container">
             <input type="text"
              className="add-input-box"
-             placeholder="add"
+             placeholder="add task"
+             value={newTask}
+             onChange={(b)=>setNewTask(b.target.value)}
              />
-            <button type="button" className="add-btn">Add</button>
+            <button type="button"
+             className="add-btn"
+             onClick={()=>{
+                setTodoList([
+                        ...todoList,newTask
+             ])
+                console.log(newTask)
+             }}
+             
+             >Add</button>
         </div>
 
 
