@@ -1,11 +1,11 @@
 .heading
 {
     text-align: center;
-    font-family: "Playwrite ES Deco", cursive;
-    font-optical-sizing: auto;
+    font-family:  cursive;
+    margin: -10px -10px;
     font-weight: weight;
     font-style: normal;
-    font-size: 30px;
+    font-size: 35px;
   
 }
 .todo-list-container
@@ -63,4 +63,14 @@
 {
     background-color: green;
     transform:rotate(180deg)
+}
+
+.empty-task-container-text
+{
+    text-align:center;
+    font-size: 50px;
+    font-family:  cursive;
+    font-optical-sizing: auto;
+    font-size: 40px;
+    margin-top: 200px;
 }
