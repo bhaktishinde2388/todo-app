@@ -10,6 +10,22 @@
     font-family:  cursive;
     font-optical-sizing: auto;
     font-weight: bolder;
+    position: relative;
+    display: flex;
   
 
+}
+.category
+{
+    font-size: 12px;
+    text-align: right;
+    position: absolute;
+    border: 1px solid gray;
+    padding: 5px;
+   right: 10px;
+   bottom: 2px;
+   text-align: center;
+   border-radius: 2px 2px 15px 15px;
+   width: 80px;
+   
 }

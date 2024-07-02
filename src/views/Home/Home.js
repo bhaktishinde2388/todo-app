@@ -1,7 +1,7 @@
 import "./Home.css"
 import CheckIcon from "./icons/checklist.png"
 import ToDoCards from "../../components/ToDoCards/ToDoCards"
-import { useState } from "react"
+import {useState } from "react"
 import toast, { Toaster} from 'react-hot-toast';
 
 function Home()
@@ -23,13 +23,15 @@ function Home()
         
     // ]
 
-    const [todoList,setTodoList] =useState([])
-    const [newTask,setNewTask] = useState([])
+    const [todoList,setTodoList] =useState([
+       
+    ])
+    const [newTask,setNewTask] = useState("")
+    const [category,setCategory] = useState("")
+
+
     return(
-        
         <div>
-
-
 
         <h1 className="heading"> Todo list</h1>
 
@@ -41,8 +43,9 @@ function Home()
                 //         <div key={i}>{todoItem}</div>
                 //     )
                 // }) 
-                todoList.map((todoItem, i)=><ToDoCards key={i} todoItem={todoItem}/>)}
-               
+                todoList.map((todoItem, i)=>{
+                    const {task,category} = todoItem
+                    return   <ToDoCards key={i} task={task} category={category}/>})}               
 
                 {
                     todoList.length === 0
@@ -55,6 +58,7 @@ function Home()
                     :null
                 }
             
+            
              <div>   <img className="check-icon" src={CheckIcon}/>   </div>
            </div>
          
@@ -66,19 +70,35 @@ function Home()
             <input type="text"
              className="add-input-box"
              placeholder="add new task"
-             onChange={(b)=>setNewTask(b.target.value)}
              value={newTask}
+             onChange={(e)=>setNewTask(e.target.value)}
+            
              />
+             <select className="task-category-options"
+             value={category}
+                     onChange={(e)=>setCategory(e.target.value)}
+             >
+                <option value="study">study </option>
+                <option value="cooking">cooking:"👩‍🍳"</option>
+                <option value="shooping"> shooping:"🛍"</option>
+                <option value="health">health:"🩺👩‍🔬"</option>
+                <option value="farmwork">farmWork:"👩‍🌾"</option>
+             </select>
+
+
             <button type="button"
+            alt="add"
              className="add-btn"
              onClick={()=>{
-                 if(newTask == ""){
+                 if(newTask === ""){
                     toast.error("task can't add");
+                    return
                  }
 
 
-                setTodoList([ ...todoList,newTask  ])
+                setTodoList([ ...todoList,{task:newTask,category:category}])
                 setNewTask("")
+                setCategory("")
                 toast.success("work submitted")
              }}
              
