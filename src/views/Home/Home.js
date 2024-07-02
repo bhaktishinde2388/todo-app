@@ -1,8 +1,9 @@
 import "./Home.css"
 import CheckIcon from "./icons/checklist.png"
 import ToDoCards from "../../components/ToDoCards/ToDoCards"
-import {useState } from "react"
+import {useState,useEffect } from "react"
 import toast, { Toaster} from 'react-hot-toast';
+import { json } from "react-router-dom";
 
 function Home()
 {
@@ -23,13 +24,26 @@ function Home()
         
     // ]
 
+  
     const [todoList,setTodoList] =useState([
        
     ])
     const [newTask,setNewTask] = useState("")
     const [category,setCategory] = useState("")
 
+    useEffect(()=>{
+        const save = localStorage.getItem("todoList")
 
+        if (save){
+            setTodoList(JSON.parse(save))
+        }
+    },[])
+
+    useEffect(()=>{
+        if(todoList.length === 0)
+            return
+          localStorage.setItem("todoList",JSON.stringify(todoList))
+    },[todoList])
     return(
         <div>
 
@@ -78,7 +92,8 @@ function Home()
              value={category}
                      onChange={(e)=>setCategory(e.target.value)}
              >
-                <option value="study">study </option>
+                <option value="study">category </option>
+                <option value="study">study✍ </option>
                 <option value="cooking">cooking:"👩‍🍳"</option>
                 <option value="shooping"> shooping:"🛍"</option>
                 <option value="health">health:"🩺👩‍🔬"</option>
@@ -91,7 +106,7 @@ function Home()
              className="add-btn"
              onClick={()=>{
                  if(newTask === ""){
-                    toast.error("task can't add");
+                    toast.error("empty input error!!!please add task");
                     return
                  }
 
