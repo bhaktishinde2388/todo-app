@@ -120,6 +120,19 @@
     margin-top: 200px;
 }
 
+@media screen and (max-width:768px)
+{
+    .empty-task-container-text
+{
+    
+    text-align:left;
+    font-size: 50px;
+    font-family:  cursive;
+    font-optical-sizing: auto;
+   
+    margin-top: 200px;
+}
+}
 .task-category-options
 {
     padding:5px 8px;
