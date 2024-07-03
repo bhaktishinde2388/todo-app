@@ -8,6 +8,18 @@
     font-size: 35px;
   
 }
+@media screen and (max-width:768px)
+{
+    .heading
+{
+    
+   margin: 0px auto;
+   text-align: center;
+   font-size: 40px;
+   margin-top: 40px;
+ 
+}
+}
 .todo-list-container
 {
    
@@ -26,7 +38,18 @@
 
     
 }
-.check-icon
+@media screen and (max-width:768px)
+{
+    .todo-list-container
+{
+    
+    height: 780px;
+    width: 100%;
+   
+ 
+}
+}
+.check-girl-icon
 {
     position: absolute;
     bottom: 40px;
@@ -35,19 +58,45 @@
     width: 120px;position: fixed;
 
 }
+@media screen and (max-width:768px)
+{
+    .check-girl-icon
+{
+    
+   
+    bottom: 190px;
+    left: 10px;
+    height: 110px;
+    width: 110;position: fixed;
 
+}
+}
 .add-task-container
 {
     display: flex;
     justify-content: center;
   
 }
+
 .add-input-box
 {
     padding:5px 8px;
     border-radius: 10px;
     font-size: 20px;
     margin: 0px 10px;
+}
+@media screen and (max-width:768px)
+{
+    .add-input-box
+{
+    
+    padding:5px 8px;
+    border-radius: 10px;
+    font-size: 18px;
+    margin: 0px 10px;
+    margin-left: 240px;
+    width: 120px;
+}
 }
 .add-btn
 {

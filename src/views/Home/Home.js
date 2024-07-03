@@ -49,8 +49,8 @@ function Home()
     {
 
         Swal.fire({
-            title:"The Task will deleted",
-            text:"It removed permanently"
+            title:"You want to delete this task??",
+            text:"If you deleted It removed permanently"
 
         })
      const newTodoList = todoList.filter((item,i)=>{
@@ -95,7 +95,7 @@ function Home()
                 }
             
             
-             <div>   <img className="check-icon" src={CheckIcon}/>   </div>
+             <div>   <img className="check-girl-icon" src={CheckIcon}/>   </div>
            </div>
          
 
