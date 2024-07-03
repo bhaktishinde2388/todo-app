@@ -29,3 +29,15 @@
    width: 80px;
    
 }
+.delete-icon
+{
+    height: 30px;
+    position: absolute;
+    left: -40px;
+}
+.delete-icon:hover
+{
+    box-shadow: 2px 2px 2px 2px red;
+    transform:rotate(360deg)
+    tran
+}

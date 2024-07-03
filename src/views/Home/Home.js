@@ -110,7 +110,12 @@ function Home()
                     return
                  }
 
-
+                 if(category === "")
+                    {
+                        toast.error('plz select category')
+                    
+                    return
+                    }
                 setTodoList([ ...todoList,{task:newTask,category:category}])
                 setNewTask("")
                 setCategory("")
