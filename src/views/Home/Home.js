@@ -4,6 +4,7 @@ import ToDoCards from "../../components/ToDoCards/ToDoCards"
 import {useState,useEffect } from "react"
 import toast, { Toaster} from 'react-hot-toast';
 import { json } from "react-router-dom";
+import Swal from "sweetalert2";
 
 function Home()
 {
@@ -25,9 +26,7 @@ function Home()
     // ]
 
   
-    const [todoList,setTodoList] =useState([
-       
-    ])
+    const [todoList,setTodoList] =useState([])
     const [newTask,setNewTask] = useState("")
     const [category,setCategory] = useState("")
 
@@ -44,6 +43,29 @@ function Home()
             return
           localStorage.setItem("todoList",JSON.stringify(todoList))
     },[todoList])
+
+
+    function deleteTask(index)
+    {
+
+        Swal.fire({
+            title:"The Task will deleted",
+            text:"It removed permanently"
+
+        })
+     const newTodoList = todoList.filter((item,i)=>{
+        if(i == index)
+            {
+                return false
+            }
+            else
+            {
+                return true
+            }
+     })
+     setTodoList(newTodoList)
+    }
+
     return(
         <div>
 
@@ -59,7 +81,7 @@ function Home()
                 // }) 
                 todoList.map((todoItem, i)=>{
                     const {task,category} = todoItem
-                    return   <ToDoCards key={i} task={task} category={category}/>})}               
+                    return   <ToDoCards key={i} index={i} task={task} category={category} deleteTask={deleteTask}/>})}               
 
                 {
                     todoList.length === 0
@@ -112,8 +134,13 @@ function Home()
 
                  if(category === "")
                     {
-                        toast.error('plz select category')
-                    
+                            Swal.fire({
+                            icon: "error",
+                            title: "Oops...",
+                            
+                            text:"please add the category!",
+                           
+                          });
                     return
                     }
                 setTodoList([ ...todoList,{task:newTask,category:category}])

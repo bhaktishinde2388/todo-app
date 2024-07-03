@@ -1,7 +1,8 @@
 import React from 'react'
 import "./../ToDoCards/ToDoCards.css"
+import DeleteIcon from "./../../views/Home/icons/delete.png"
 
-function ToDoCards({task,category}) {
+function ToDoCards({index,task,category,deleteTask}) {
 
   const CategoryImogi = {
     study :"✍",
@@ -22,6 +23,15 @@ function ToDoCards({task,category}) {
   return (
     
     <div className="todo-card">
+      <img
+      src={DeleteIcon}
+      className='delete-icon'
+      alt='Delete'
+      onClick={()=>{
+        deleteTask(index)
+      }}/>
+
+
     <span>{task}</span>
     <h1 className='category' style={{backgroundColor:CategoryColor[category]}}>
                {CategoryImogi[category]} {category}</h1>
