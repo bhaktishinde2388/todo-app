@@ -43,7 +43,7 @@
     .todo-list-container
 {
     
-    height: 780px;
+    height: 760px;
     width: 100%;
    
  
@@ -64,11 +64,7 @@
 {
     
    
-    bottom: 190px;
-    left: 10px;
-    height: 110px;
-    width: 110;position: fixed;
-
+   display: none;
 }
 }
 .add-task-container
@@ -94,8 +90,8 @@
     border-radius: 10px;
     font-size: 18px;
     margin: 0px 10px;
-    margin-left: 240px;
-    width: 120px;
+    margin-left: 150px;
+    width: 150px;
 }
 }
 .add-btn
